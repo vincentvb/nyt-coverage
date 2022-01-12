@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const port = 3000
 const path = require('path');
 
 app.get('/', (_, res) => {
@@ -9,6 +8,6 @@ app.get('/', (_, res) => {
 
 app.use(express.static('public'))
 
-app.listen(port, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log(`Listening at http://localhost:${port}`)
 })
