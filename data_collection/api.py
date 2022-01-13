@@ -1,7 +1,15 @@
 import requests
-from constants import MONTHS, YEARS, API_KEY, ALL_COUNTRIES
+from constants import MONTHS, YEARS, ALL_COUNTRIES
+from os import environ
 from time import sleep
 import pandas as pd
+
+API_KEY = None
+
+if environ.get('API_KEY') is None:
+    raise EnvironmentError("Failed because API_KEY is not set")
+else:
+    API_KEY = environ.get('API_KEY')
 
 def check_match(value):
     for country in ALL_COUNTRIES:
@@ -22,7 +30,7 @@ for year in YEARS:
                     article_dic['date'] = article['pub_date']
                     all_dics_year.append(article_dic)
         print(f"{month} {year} done processing")
-        sleep(2)
+        sleep(4)
     
     df = pd.DataFrame(all_dics_year)
     df.to_csv(f"../public/data/{year}_data.csv", index=False)
