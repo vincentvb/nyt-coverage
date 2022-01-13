@@ -24,7 +24,7 @@ This visualization relies entirely upon data supplied by [NYTime's Archive API](
 While the data has already been retrieved and saved in the repo as CSV files, you can recreate the data retrieval process as follows:
 
 ```
-# Register for an NYT Developer API key and follow the instructions [found here](https://developer.nytimes.com/get-started)
+# Register for an NYT Developer API key and follow the instructions found at: https://developer.nytimes.com/get-started
 
 python -r requirements.txt
 
